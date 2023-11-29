@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
+import json
+
 
 app = Flask(__name__)
 
@@ -24,6 +26,7 @@ def plexo_webhook():
                 print("Data forwarded successfully to the Plexo Webhook endpoint.")
             else:
                 print(response)
+                print(json.dumps(response.json(), indent=2)) 
                 print(f"Failed to forward data. Status code: {response.status_code}")
 
             # You can access specific fields like this:
