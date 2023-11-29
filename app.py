@@ -13,7 +13,6 @@ def plexo_webhook():
         try:
             # Assuming the request payload is in JSON format
             request_data = request.get_json()
-
             # Print the entire request payload
             print("Received Plexo Webhook Request:")
             print(request_data)
@@ -25,8 +24,8 @@ def plexo_webhook():
             if response.status_code == 200:
                 print("Data forwarded successfully to the Plexo Webhook endpoint.")
             else:
-                print(response)
-                print(json.dumps(response.json(), indent=2)) 
+                print("RESPONSE:")
+                print(response.json()) 
                 print(f"Failed to forward data. Status code: {response.status_code}")
 
             # You can access specific fields like this:
@@ -49,4 +48,4 @@ def health_check():
 
 if __name__ == '__main__':
     # Bind to 0.0.0.0 to allow external access
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5019, debug=True)
