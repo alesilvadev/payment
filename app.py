@@ -23,6 +23,7 @@ def plexo_webhook():
             if response.status_code == 200:
                 print("Data forwarded successfully to the Plexo Webhook endpoint.")
             else:
+                print(response)
                 print(f"Failed to forward data. Status code: {response.status_code}")
 
             # You can access specific fields like this:
